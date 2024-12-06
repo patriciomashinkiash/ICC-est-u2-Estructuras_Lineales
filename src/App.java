@@ -1,3 +1,4 @@
+import Materia.Queues.Queue;
 import Materia.Stacks.Stack;
 import Materia.Stacks.StackGeneric;
 import Models.Pantalla;
@@ -5,7 +6,8 @@ import Models.Pantalla;
 public class App {
     public static void main(String[] args) throws Exception {
         //runStack();
-        runStackGeneric();
+        //runStackGeneric();
+        runQueue();
     }
 
     public static void runStack() {
@@ -51,5 +53,35 @@ public class App {
         System.out.println("Estoy en " + router.peek().getRuta());
 
         router.printStack();
+    }
+
+    public static void runQueue() {
+        Queue cola = new Queue();
+
+        cola.enqueue(10);
+        cola.enqueue(20);
+        cola.enqueue(30);
+        cola.enqueue(40);
+
+        cola.printQueue();
+
+        System.out.println("");
+        System.out.println(cola.peek());
+        System.out.println(cola.dequeue());
+        System.out.println(cola.dequeue());
+        System.out.println(cola.peek());
+
+        System.out.println("El tamanio de la cola es: " + cola.getSize());
+
+        
+    }
+
+    public static void runQueueGeneric() {
+        /*QueueGeneric<Pantalla> cola = new QueueGeneric<>();
+        cola.enqueue(new Pantalla(1, "Home Page", "/home"));
+        cola.enqueue(new Pantalla(1, "Menu Page", "/home/menu"));
+        cola.enqueue(new Pantalla(1, "Users Page", "/home/menu/users"));
+        cola.enqueue(new Pantalla(1, "Settings Page", "/home/menu/users/settings"));*/
+        
     }
 }
