@@ -1,3 +1,4 @@
+import Controller.MenuController;
 import Materia.Queues.Queue;
 import Materia.Queues.QueueGeneric;
 import Materia.Stacks.Stack;
@@ -9,7 +10,8 @@ public class App {
         //runStack();
         //runStackGeneric();
         //runQueue();
-        runQueueGeneric();
+        //runQueueGeneric();
+        runContactMannager();
     }
 
     public static void runStack() {
@@ -95,5 +97,10 @@ public class App {
         System.out.println("Elemento al frente: " + cola.peek());
 
         System.out.println("El tamanio de la cola es: " + cola.getSize());
+    }
+
+    private static void runContactMannager() {
+        MenuController menuController = new MenuController();
+        menuController.showMenu();
     }
 }
