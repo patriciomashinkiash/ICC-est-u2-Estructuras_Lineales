@@ -26,7 +26,7 @@ public class LinkedList<T> {
         }
         NodeGeneric<T> current = head;
         while (current.getNext() != null) {
-            System.out.print(current.getValue() + " -> ");
+            System.out.print(current.getValue());
             current = current.getNext();
     }
     

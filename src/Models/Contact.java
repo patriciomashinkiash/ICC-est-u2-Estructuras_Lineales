@@ -4,8 +4,6 @@ public class Contact <T,U> {
     private T name;
     private U phone;
 
-    
-
     public Contact(T name, U phone) {
         this.name = name;
         this.phone = phone;
@@ -28,7 +26,7 @@ public class Contact <T,U> {
     }
 
     public String toString() {
-        return "Contact { " + "name = " + name + ", phone = " + phone + '}';
+        return "\tContact [ " + "name = " + name + ", phone = " + phone + " ]\n";
     }
 }
 
