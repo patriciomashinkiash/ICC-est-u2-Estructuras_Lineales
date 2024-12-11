@@ -67,6 +67,5 @@ public class MenuController {
     
     private void printList() {
         contactManager.printList();
-        }
-    
+    }
 }

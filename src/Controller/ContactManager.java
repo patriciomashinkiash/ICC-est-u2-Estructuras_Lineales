@@ -18,12 +18,12 @@ public class ContactManager {
 
     public Contact<?,?> findContactByName(String name) {
         NodeGeneric<Contact<?,?>> current = conctacts.getHead(); //obtenemos para iterar la lista y encotrar por este nombre
+        
         while (current != null) {
             if (( (String) current.getValue().getName()).equalsIgnoreCase(name)) {
                 return current.getValue();
             }
             current = current.getNext();
-            
         }
         return null;
     }
@@ -46,16 +46,12 @@ public class ContactManager {
             if (((String) current.getNext().getValue().getName()).equalsIgnoreCase(name)) {
                 current.setNext(current.getNext().getNext());
                 conctacts.setSize(conctacts.getSize() - 1);
-
                 return;
-
             }
-            
         }
     }
 
     public void printList() {
         conctacts.print();
-
     }
 }
