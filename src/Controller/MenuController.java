@@ -14,6 +14,7 @@ public class MenuController {
 
     public void showMenu() {
         boolean exit = false;
+
         while (!exit) {
             consoleView.displayMenu();
             String option = consoleView.getInput("");
@@ -43,6 +44,7 @@ public class MenuController {
     private void addContact() {
         String name = consoleView.getInput("Enter name: ");
         String phone = consoleView.getInput("Enter phone: ");
+
         Contact<String,String> contact = new Contact<>(name, phone);
         contactManager.addContact(contact);
         consoleView.showMessage("Contact added");
@@ -51,6 +53,7 @@ public class MenuController {
     private void findContact() {
         String name = consoleView.getInput("Enter a name to search: ");
         Contact<?,?> contact = contactManager.findContactByName(name);
+        
         if(contact != null){
             consoleView.showMessage("Contact found: "+contact);
         }else{
