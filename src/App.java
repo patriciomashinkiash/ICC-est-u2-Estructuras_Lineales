@@ -1,4 +1,8 @@
+import java.util.Scanner;
+
 import Controller.MenuController;
+import Ejercicio_01_sign.SignValidator;
+import Ejercicio_02_sorting.StackSorter;
 import Materia.Queues.Queue;
 import Materia.Queues.QueueGeneric;
 import Materia.Stacks.Stack;
@@ -11,7 +15,10 @@ public class App {
         //runStackGeneric();
         //runQueue();
         //runQueueGeneric();
-        runContactMannager();
+        //runContactMannager();
+        
+        //runSignValidator();
+        runStackSorter();
     }
 
     public static void runStack() {
@@ -99,8 +106,49 @@ public class App {
         System.out.println("El tamanio de la cola es: " + cola.getSize());
     }
 
-    private static void runContactMannager() {
+    public static void runContactMannager() {
         MenuController menuController = new MenuController();
         menuController.showMenu();
+    }
+
+    public static void runSignValidator() {
+        SignValidator sv = new SignValidator();
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("Ingrese una cadena que contenga solo los caracteres '(', ')', '{', '}', '[' y ']':");
+            String input = scanner.nextLine();
+
+            if (!input.matches("[(){}\\[\\]]*")) {
+                System.out.println("Un caracter ingresado no es correcto. Intente nuevamente.");
+            } else {
+                boolean result = sv.isValid(input);
+                System.out.println("Output: " + result);
+                break; 
+            }
+        }
+
+        scanner.close();
+    }
+
+    public static void runStackSorter() {
+        StackSorter ss = new StackSorter();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Ingrese el tamaño del stack:");
+        int size = scanner.nextInt();
+
+        int[] values = new int[size];
+
+        System.out.println("Ingrese los valores del stack uno por uno:");
+        for (int i = 0; i < size; i++) {
+            System.out.print("Valor " + (i + 1) + ": ");
+            values[i] = scanner.nextInt();
+        }
+
+        String sortedStack = ss.processAndSortStack(values);
+
+        System.out.println("Pila ordenada: " + sortedStack);
+
+        scanner.close();
     }
 }
